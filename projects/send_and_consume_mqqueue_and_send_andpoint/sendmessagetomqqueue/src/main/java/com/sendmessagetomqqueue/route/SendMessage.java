@@ -9,7 +9,7 @@ public class SendMessage extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		
-		from("file:files/input?noop=true")
+		from("file:files/input?noop=true&delay=5s")
         .log("${body}")
         .to("file:files/output")
 		.to("activemq:test-activemq-queue");
