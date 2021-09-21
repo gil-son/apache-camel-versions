@@ -9,16 +9,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component
+
 public class ReceiveMessage extends RouteBuilder{
 
 	
-	//@Autowired
+	@Autowired
 	GetEmployee getEmployee;
 	
-	
-	ReceiveMessage(GetEmployee getEmployee){
-		this.getEmployee = getEmployee;
-	}
 	
 	
 	@Override
@@ -29,6 +26,7 @@ public class ReceiveMessage extends RouteBuilder{
 		.bean(getEmployee)
 		.to("log:myloggingqueue");
 		
+		
 	}
 	
 	
@@ -36,7 +34,7 @@ public class ReceiveMessage extends RouteBuilder{
 	class GetEmployee{
 	    Logger logger= LoggerFactory.getLogger(GetEmployee.class);
 	    public void getData(Employee employee){
-	        logger.info("Emp data: "+employee.getId());
+	        logger.info("Emp data: "+employee.getId()+" Name: "+employee.getName());
 	    }
 	}
 }

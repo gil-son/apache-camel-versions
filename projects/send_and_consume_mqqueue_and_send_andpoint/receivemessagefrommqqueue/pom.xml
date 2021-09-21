@@ -48,7 +48,16 @@
 			<artifactId>camel-activemq-starter</artifactId>
 			<version>3.11.0</version>
 		</dependency>
+		
+		<dependency>
+    		<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-jackson-starter</artifactId>
+			<version>3.11.0</version>
+		</dependency>
+		
 	</dependencies>
+	
+	
 
 	<build>
 		<plugins>
