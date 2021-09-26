@@ -28,11 +28,12 @@ public class ReceiveMessage extends RouteBuilder{
 		.to("log:myloggingqueue");
 		
 		
-		
+		/*
 		restConfiguration().component("servlet").port(9000).host("localhost").bindingMode(RestBindingMode.json);
 		
 		rest().get("/test").produces(MediaType.APPLICATION_JSON_VALUE).route()
 			.setBody(constant("Test message"));
+		*/
 	}
 	
 	
