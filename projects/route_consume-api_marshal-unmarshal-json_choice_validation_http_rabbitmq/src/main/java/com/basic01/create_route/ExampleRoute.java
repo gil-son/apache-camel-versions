@@ -12,13 +12,19 @@ public class ExampleRoute extends RouteBuilder{
 		
 		// https://viacep.com.br/ws/01001000/json/
 		
-		from("timer:foo?period=1000")
+		from("timer:foo?period=10000")
 		.routeId("Main Route")
 		
-		.log(INFO, this.log, "This will be first message... maybe");
-		//.to("direct:named-http");
-	}
-
+		.log(INFO, this.log, "This will be first message...")
+		.to("direct:named-http");
 		
-	
+		
+		from("direct:named-http")
+		// .log("Id: ${id}  Body: ${body}")
+		.log(INFO, this.log, "This will be second message...")
+		// .to("log:test")
+		// .log("test")
+		.to("https://viacep.com.br/ws/01001000/json/")
+		.log(INFO, this.log, "${body}");
+	}
 }
