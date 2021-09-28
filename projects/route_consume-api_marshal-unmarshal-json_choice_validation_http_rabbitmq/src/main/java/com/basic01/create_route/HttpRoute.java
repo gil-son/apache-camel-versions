@@ -5,7 +5,7 @@ import static org.apache.camel.LoggingLevel.INFO;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class HttpRoute extends RouteBuilder{
 
 	@Override
