@@ -13,22 +13,31 @@ public class DecisionFile extends RouteBuilder{
 	public void configure() throws Exception {
 		
 		
-		from("file:files?delay=5s&noop=true")
-		.log("${body}")
-			
-			.choice()
-			
-			.when(body().contains("site01"))
-				.to("https://viacep.com.br/ws/05050020/json/")
-				.log(INFO, this.log, "${body}")
+		from("timer:foo?period=10000")
+		.routeId("Main Route")
 		
-				.when(body().contains("site02"))
-				.to("https://viacep.com.br/ws/05055020/json/")
-				.log(INFO, this.log, "${body}")
-				
-				.otherwise()
-				.to("https://viacep.com.br/ws/01001000/json/")
-				.log(INFO, this.log, "${body}");
+		.log(INFO, this.log, "This will be first message...")
+		.to("direct:named-http");
+		
+		
+		
+		
+		from("direct:named-http")
+		
+		.choice()
+		
+		.when(body().contains("site01"))
+			.to("https://viacep.com.br/ws/05050020/json/")
+			.log(INFO, this.log, "${body}")
+	
+			.when(body().contains("site02"))
+			.to("https://viacep.com.br/ws/05055020/json/")
+			.log(INFO, this.log, "${body}")
+			
+			.otherwise()
+			.to("https://viacep.com.br/ws/01001000/json/")
+			.log(INFO, this.log, "${body}");
+		
 			
 	}
 
