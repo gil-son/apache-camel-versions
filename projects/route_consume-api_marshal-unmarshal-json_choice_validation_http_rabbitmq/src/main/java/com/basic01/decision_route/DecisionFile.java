@@ -20,14 +20,12 @@ public class DecisionFile extends RouteBuilder{
 		.to("direct:named-http");
 		
 		
-		
-		
 		from("direct:named-http")
 		
 		.choice()
 		
-		.when(body().contains("site01"))
-			.to("https://viacep.com.br/ws/05050020/json/")
+		.when(body().isNull())
+			.to("https://viacep.com.br/ws/05055020/json/")
 			.log(INFO, this.log, "${body}")
 	
 			.when(body().contains("site02"))

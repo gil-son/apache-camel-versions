@@ -18,7 +18,5 @@ public class ExampleRoute extends RouteBuilder{
 		.log(INFO, this.log, "This will be first message...")
 		.to("direct:named-http");
 		
-		
-		
 	}
 }
