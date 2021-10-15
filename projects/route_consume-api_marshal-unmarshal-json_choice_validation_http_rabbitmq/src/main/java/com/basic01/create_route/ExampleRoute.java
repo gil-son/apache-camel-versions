@@ -4,7 +4,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 import static org.apache.camel.LoggingLevel.INFO;
 
-//@Component
+@Component
 public class ExampleRoute extends RouteBuilder{
 
 	@Override
