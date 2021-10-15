@@ -1,0 +1,19 @@
+{
+	"status": "Ok",
+	"code": 200,
+	"total": 1,
+	"data": [
+		{
+			"street": "48030 Nathen Roe Apt. 767",
+			"streetName": "Assunta Prairie",
+			"buildingNumber": "91875",
+			"city": "New Berniece",
+			"zipcode": "350039",
+			"country": "Qatar",
+			"country_code": "TN",
+			"latitude": "61.373369",
+			"longitude": "49.264334"
+			
+		}
+	]
+}
