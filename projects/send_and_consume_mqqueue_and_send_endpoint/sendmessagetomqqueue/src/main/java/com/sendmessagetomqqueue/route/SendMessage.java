@@ -1,5 +1,9 @@
 package com.sendmessagetomqqueue.route;
 
+import java.net.ConnectException;
+
+import javax.jms.JMSException;
+
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -10,10 +14,15 @@ public class SendMessage extends RouteBuilder {
 	public void configure() throws Exception {
 		
 		from("file:files/json?noop=true&delay=5s")
-        .log("${body}")
-        .to("file:files/output")
-		.to("activemq:test-activemq-queue");
+		.routeId("Files-Input-Route")
+        .log("${file:name} ${body}")
+        
+        // .to("file:files/output")
+        .doTry()
+			.to("activemq:test-activemq-queue-25012022")
 		
+		.doCatch(JMSException.class, ConnectException.class)
+			.log("Error to connect queue");
 	}
 
 }
