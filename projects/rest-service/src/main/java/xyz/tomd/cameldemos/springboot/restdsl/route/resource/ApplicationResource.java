@@ -1,4 +1,4 @@
-package xyz.tomd.cameldemos.springboot.restdsl.rest.resource;
+package xyz.tomd.cameldemos.springboot.restdsl.route.resource;
 
 import org.apache.camel.BeanInject;
 import org.apache.camel.Expression;
@@ -14,11 +14,11 @@ import xyz.tomd.cameldemos.springboot.restdsl.service.OrderService;
 @Component
 public class ApplicationResource extends RouteBuilder{
 
-    @Autowired
-    private OrderService service;
+//    @Autowired
+//    private OrderService service;
 
-    @BeanInject
-    private OrderProcessor orderProcessor;
+//    @BeanInject
+//    private OrderProcessor orderProcessor;
 
     @Override
     public void configure() throws Exception {
@@ -35,6 +35,8 @@ public class ApplicationResource extends RouteBuilder{
                 .produces(MediaType.APPLICATION_JSON_VALUE)
                 .route()
                 .setBody(constant("Point"))
+                .setProperty("GET", constant("get propertied"))
+                .setProperty("foo", exchangeProperty("bar"))
                 .to("direct:get-rest-resource")
                 .endRest();
 
@@ -45,13 +47,13 @@ public class ApplicationResource extends RouteBuilder{
 //                .setBody(() -> service.getOrders())
 //                .endRest();
 
-        rest()
-                .post("/order")
-                .consumes(MediaType.APPLICATION_JSON_VALUE)
-                .type(Order.class)
-                .outType(Order.class)
-                .route()
-                .process(orderProcessor)
-                .endRest();
+//        rest()
+//                .post("/order")
+//                .consumes(MediaType.APPLICATION_JSON_VALUE)
+//                .type(Order.class)
+//                .outType(Order.class)
+//                .route()
+//                .process(orderProcessor)
+//                .endRest();
     }
 }

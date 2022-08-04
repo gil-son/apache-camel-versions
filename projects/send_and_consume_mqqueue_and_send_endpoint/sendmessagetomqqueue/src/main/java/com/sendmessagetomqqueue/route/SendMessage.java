@@ -19,7 +19,7 @@ public class SendMessage extends RouteBuilder {
         
         // .to("file:files/output")
         .doTry()
-			.to("activemq:test-activemq-queue-25012022")
+			.to("activemq:test-activemq-queueqqq-")
 		
 		.doCatch(JMSException.class, ConnectException.class)
 			.log("Error to connect queue");

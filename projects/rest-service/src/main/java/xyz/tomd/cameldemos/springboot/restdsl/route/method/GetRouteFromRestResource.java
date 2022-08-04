@@ -1,4 +1,4 @@
-package xyz.tomd.cameldemos.springboot.restdsl.route;
+package xyz.tomd.cameldemos.springboot.restdsl.route.method;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
