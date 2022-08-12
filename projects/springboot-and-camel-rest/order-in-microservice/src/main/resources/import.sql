@@ -1,0 +1,6 @@
+
+INSERT INTO tb_order(payment, start_moment, end_moment) VALUES('WAITTING', TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z')
+
+
+
+INSERT INTO tb_item(name, price, quantity, date, order_id) VALUES('Item A', 100, 15, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', null)

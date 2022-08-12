@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order>
+    <id>3</id>
+    <payment>WAITTING</payment>
+    <startMoment>2020-07-13T20:50:07.123450Z</startMoment>
+    <endMoment>2020-07-13T20:50:07.123450Zo</endMoment>
+    <items>
+        <item>
+            <id>1</id>
+            <quantity>1</quantity>
+            <name>Item A</name>
+            <price>100.0</price>
+            <date>2020-07-13T20:50:07.123450Z</date>
+        </item>
+    </items>
+</order>
