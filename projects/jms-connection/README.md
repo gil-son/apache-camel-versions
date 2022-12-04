@@ -4,6 +4,35 @@
 
 <hr>
 
+
+To Json Route:
+
+```
+{
+"person":{
+ "middlename":"Midllename"
+}
+}
+```
+
+To XML Route (in the sonn):
+
+```
+<person><middlename>Midllename</middlename></person>
+```
+
+To String Route:
+
+```
+"any word inside double aspas"
+
+```
+
+
+
+
+
+
 ## Source
 
 <ul>
